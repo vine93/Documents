@@ -1,0 +1,301 @@
+% FortySecondsCV LaTeX template
+% Copyright © 2019 René Wirnata <rene.wirnata@pandascience.net>
+% Licensed under the 3-Clause BSD License. See LICENSE file for details.
+%
+% Attributions
+% ------------
+% * fortysecondscv is based on the twentysecondcv class by Carmine Spagnuolo 
+%   (cspagnuolo@unisa.it), released under the MIT license and available under
+%   https://github.com/spagnuolocarmine/TwentySecondsCurriculumVitae-LaTex
+% * further attributions are indicated immediately before corresponding code
+
+
+%-------------------------------------------------------------------------------
+%                             ADDITIONAL PACKAGES
+%-------------------------------------------------------------------------------
+\documentclass[
+  a4paper, 
+%   showframes,
+%   maincolor=cvgreen,
+%   sectioncolor=red,
+%   subsectioncolor=orange
+%   sidebarwidth=0.4\paperwidth,
+%   topbottommargin=0.03\paperheight,
+%   leftrightmargin=15pt
+]{fortysecondscv}
+
+% improve word spacing and hyphenation
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+% take care of proper font encoding
+\ifxetex
+	\usepackage{fontspec}
+	\defaultfontfeatures{Ligatures=TeX}
+% \newfontfamily\headingfont[Path = fonts/]{segoeuib.ttf} % local font
+\else
+	\usepackage[utf8]{inputenc}
+	\usepackage[T1]{fontenc}
+% \usepackage[sfdefault]{noto} % use noto google font
+\fi
+
+% enable mathematical syntax for some symbols like \varnothing
+\usepackage{amssymb}
+
+% bubble diagram configuration
+\usepackage{smartdiagram}
+\smartdiagramset{
+  % defaut font size is \large, so adjust to harmonize with sidebar layout
+  bubble center node font = \footnotesize,
+  bubble node font = \footnotesize,
+  % default: 4cm/2.5cm; make minimum diameter relative to sidebar size
+  bubble center node size = 0.4\sidebartextwidth,
+  bubble node size = 0.25\sidebartextwidth,
+  distance center/other bubbles = 1.5em,
+  % set center bubble color
+  bubble center node color = maincolor!70,
+  % define the list of colors usable in the diagram
+  set color list = {maincolor!10, maincolor!40,
+  maincolor!20, maincolor!60, maincolor!35},
+  % sets the opacity at which the bubbles are shown
+  bubble fill opacity = 0.8,
+}
+
+
+%-------------------------------------------------------------------------------
+%                            PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+% profile picture
+%\cvprofilepic{pics/profile.png}
+% your name
+\cvname{Vineetha \\Govindaraj}
+% job title/career
+\cvjobtitle{Graduate student\\[0.2em]  Pennsylvania State University}
+% date of birth
+%\cvbirthday{Mar 7, 2019}
+% short address/location, use \newline if more than 1 line is required
+%\cvaddress{Park Ave.~1, 555 555 B-Woods}
+% phone number
+\cvphone{+1(650)-309-9642}
+% personal website
+% \cvsite{https://pandascience.net}
+% email address
+\cvmail{vineetha.govindaraj@gmail.com}
+% pgp key
+%\cvkey{4096R/FF00FF00}{0xAABBCCDDFF00FF00}
+% add additional information
+% \newcommand{\additional}{some more?}
+
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 1st PAGE
+%-------------------------------------------------------------------------------
+% overwrite default icons and order of personal information
+% \renewcommand{\personaltable}{%
+% 	\begin{personal}[0.8em]
+% 		\circleicon{\faKey}      & \cvkey  \\
+% 		\circleicon{\faAt}       & \cvmail \\
+% 		\circleicon{\faGlobe}    & \cvsite \\
+% 		\circleicon{\faPhone}    & \cvphone \\
+% 		\circleicon{\faEnvelope} & \cvaddress \\
+% 		\circleicon{\faInfo}     & \cvbirthday \\
+% 		% add another line
+% 		\circleicon{\faQuestion} & \additional
+% 	\end{personal}
+% }
+
+% add more profile sections to sidebar on first page
+\addtofrontsidebar{
+	% include gosquare national flags from https://github.com/gosquared/flags;
+	% naming according to ISO 3166-1 alpha-2 country codes
+	\graphicspath{{pics/flags/}}
+
+    \profilesection{About Me}
+	\aboutme{
+		\Small I am a graduate student working on computer architecture, datacenter power/performance and programming languages. I am looking for full opportunities to engage myself in computer architecture and systems research as a full time Ph.D. student.
+	}
+
+	\profilesection{Research Interests}
+		\skill[-15]{} {\large Computer Architecture}
+		\skill[-15]{} {\large Compiler Technologies}
+		\skill[-15]{} {\large Distributed Systems}
+        \skill[-15]{} {\large Programming Languages}
+
+	%\profilesection{Languages}
+	%\barskill{\faSkyatlas}{C++}{}
+	%\barskill{\faImage}{Playing Chess}{30}
+	%\barskill{\faMusic}{Playing the bamboo flute}{50}
+
+	\profilesection{Skills}
+		\vineethaskill{\faHome}{Programming and Scripting}{}
+		    \skill[1.8em]{}{}
+		    \vspace{-0.15in}
+		    	\skill[1.8em]{\faCompress}{C, C++}
+		    	\skill[1.8em]{\faCompress}{Python, Latex, Shell}
+		\vineethaskill{\faHome}{Hardware Design/Verification}{}
+ 			\skill[1.8em]{}{}
+ 			\vspace{-0.15in}
+ 			\skill[1.8em]{\faCompress}{System Verilog, UVM}
+ 			\skill[1.8em]{\faCompress}{Synopsis VCS, Cadence SimVision}
+ 		\vineethaskill{\faTasks}{Tools and APIs}{}
+ 			\skill[1.8em]{}{}
+ 			\skill[1.8em]{\faCompress}{Apache Spark, lambda}
+ 			\skill[1.8em]{\faCompress}{pthreads, sockets}
+ 			\skill[1.8em]{\faCompress}{matplotlib, numpy, pandas, scikitlearn}
+ 		 \vineethaskill{\faTasks}{Architecture Simulators}{}
+ 			\skill[1.8em]{}{}
+ 			\skill[1.8em]{\faCompress}{distributed gem5, McPAT}
+        \vineethaskill{\faTasks}{Performance Measurement Tools}{}
+ 			\skill[1.8em]{}{}
+ 			\vspace{-0.15in}
+ 			\skill[1.8em]{\faCompress}{Intel VTune, Linux Perf}
+
+    \profilesection{Relevant Coursework}
+    \begin{itemize}
+    \vspace{-0.1in}
+     \setlength\itemsep{0.2em}
+        \item Advanced Computer Architecture
+        \item Operating Systems
+		\item Advanced Operating Systems
+		\item Cloud Computing
+        \item Advanced Computer Vision
+        \item Data Structures and Algorithms
+    \end{itemize}
+		
+
+}
+
+
+%-------------------------------------------------------------------------------
+%                              SIDEBAR 2nd PAGE
+%-------------------------------------------------------------------------------
+\addtobacksidebar{
+	
+
+
+\begin{comment}
+
+	\profilesection{Diagrams}
+	\chartlabel{Bubble Diagram}
+	\begin{figure}\centering
+		\smartdiagram[bubble diagram]{
+			\textcolor{white}{\textbf{Being a}} \\ 
+			\textcolor{white}{\textbf{Panda}}, % center bubble	
+			\textcolor{black!90}{Eating},
+			\textcolor{black!90}{Sleeping},
+			\textcolor{black!90}{Rolling},
+			\textcolor{black!90}{Playing},
+			\textcolor{black!90}{Chilling}
+		}
+	\end{figure}
+
+	\chartlabel{Wheel Chart}
+
+	\wheelchart{4em}{2em}{%
+  	20/3em/maincolor!50/Chill,
+  	15/3em/maincolor!15/Play,
+  	30/4em/maincolor!40/Sleep,
+  	20/3em/maincolor!20/Eat
+	}
+
+	\profilesection{Barskills}
+	\barskill{\faSkyatlas}{Wearing asian rice hats}{60}
+	\barskill{\faImage}{Playing Chess}{30}
+	\barskill{\faMusic}{Playing the bamboo flute}{50}
+
+	\profilesection{Memberships}
+	\begin{memberships}
+		\membership{pics/logo.png}{PandaScience.net}
+		\membership{pics/logo.png}{Here's some longer text spanning over more than
+			only one line}
+	\end{memberships}
+\end{comment}
+}
+
+
+%-------------------------------------------------------------------------------
+%                         TABLE ENTRIES RIGHT COLUMN
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makefrontsidebar
+\cvsection{ \large Education }
+%\subsection{Postgraduate Training}
+%\begin{cvtable}
+%	\cvitem{2018 -- 2020}{Post-Doc Panda Studies}{Panda Academy}
+%		{In-depth studies on the impact of bamboo nutrition for young pandas and
+%		its relation to relaxing, sleeping and snoozing parts of the day.}
+%	\cvitem{2008 -- 2009}{Research Stay Europe}{European Panda Labs}
+%		{Spending one year abroad teaching european panda facilities about the
+%		newest findings and research in the field of asian rice hat covers and
+%		applications for bamboo as a material.}
+%\end{cvtable}
+
+
+%\subsection{Study}
+\begin{cvtable}
+	\cvitem{2018 -- 2020}{Master of Science by thesis}{Pennsylvania State University}
+		{Focus:Computer Science and Engineering. CGPA: 3.62/4}
+	\vspace{5pt}
+	\cvitem{}{Master Thesis}{}
+		{\emph{Advisors: Prof.Vijaykrishnan Narayanan,Prof.Mahmut Kandemier,Prof. Jack Sampson}\newline
+    Power management exploration for datacenter workloads}
+
+	
+	\cvitem{2011 -- 2015}{Bachelor of Science }{National Institute of Technology,Trichy}
+		{Focus: Electronics and Comunication engineering.}
+	\cvitem{}{Bachelor Thesis }{}
+		{Performance evaluation of an interconnect topology present in multicore processors.}
+\end{cvtable}
+\vspace*{-5mm}
+\cvsection{\large Work Experience}
+\vspace*{-1mm}
+\begin{cvtable}
+	\vspace{5pt}
+	\cvitem{currently}{Graduate Teaching Assistant}{Pennsylvania State University}{Teaching assistant for Introduction to Computer Vision.}
+	\vspace{5pt}
+	\cvitem{May 2019 - July 2019}{Graduate Research Assistant}{Pennsylvania State University}{
+Exploring challenges in realizing deep sleep states for user facing workloads in datacenters}
+	\vspace{5pt}
+	\cvitem{2016 -- 2018}{Senior Hardware Engineer}{Samsung Semiconductors India Research}{
+	Developed testbench for Physical Layer of PCIe using UVM methodology for an in-house PCIe Verification IP particularly targeting link equalization, lane margining and retimers.Worked on verification of NVMe controller by developing scoreboards.}
+\cvitem{2015 -- 2016}{ Hardware Engineer}{Freescale Semiconductors India}
+{
+Verified I2C and GPIO protocols for an ARM based SoC and performed code coverage.
+}
+
+\end{cvtable}
+\vspace*{-5mm}
+
+\cvsection{\large Publications}
+\begin{cvtable}
+	\vspace{5pt}
+	\cvitem{2019}{PowerPrep: A power management proposal for
+user-facing datacenter workloads }{Submitted: DAC}{\emph{\textbf{Vineetha Govindaraj}, Ram Srivatsa Kannan, Sumitha George, Mahmut Taylan Kandemir, Jack Sampson, Vijaykrishnan Narayanan} 
+	\newline
+Analyzed the CPU behaviour of user facing workloads when deep sleep states are enabled.Based on the observation, developed necessary characteristics that are required in the hardware to realize deep-sleep states in such datacenter workloads. }
+
+	\cvitem{2019}{Fluid: A Framework for Approximate Concurrency via Controlled Dependency Relaxation}{Submitted: PLDI}{ \emph{Huaipan Jiang, Haibo Zhang, Xulong Tang, \textbf{Vineetha Govindaraj}, Jack Sampson, Mahmut Taylan Kandemir, Danfeng Zhang} 
+	\newline Developed framework containing language and runtime extensions  that allow for the expression of regions in source codes within which dataflow dependencies can be approximated. Identified execution patterns within workloads that are amenable to approximation and has increased performance under the framework.}
+
+\end{cvtable}
+\vspace*{-5mm}
+\cvsection{\large Projects}
+\begin{cvtable}
+	\vspace{5pt}
+	\cvitem{2019}{Comparative Study of Spark on EC2 and Lambda}{Cloud Computing}{Analyzed execution time, cost and CPU Utilization of spark workloads running in EC2 and Lambda. Observed the run time behaviour of spark to understand collocation, network latency and memory access delays for Lambda and EC2.}
+		\vspace{5pt}
+	\cvitem{2018}{ConfigNVPSim: NVP Simulator}{Advanced Computer Architecture}{Developed a non-volatile processor(NVP) simulator called ConfigNVPSim using Gem5 simulator. ConfigNVPSim simulates a non-volatile processor environment powered by renewable source of energy. In this context, ConfigNVPSim simulates NVPs by throttling the progress of applications based on the energy harvested levels.}
+	
+		\cvitem{2015}{Performance Analysis of interconnect topology}{Bachelor's Thesis}{Evaluvated performance  of an interconnect topology present in multicore processors. Used power, latency, throughput and area utilization as objectives to observe the performance of Flattened Butterfly and Mesh topology for 16,32 and 64 cores.}
+\end{cvtable}
+ \clearpage % added code
+         \thispagestyle{empty} % added code
+
+
+
+
+
+%\cvsignature
+
+\end{document} 
